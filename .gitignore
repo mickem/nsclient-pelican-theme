@@ -1,0 +1,10 @@
+.project
+.pydevproject
+.settings
+cache
+__pycache__
+*.pyc
+*.pid
+bower_components
+node_modules
+.ropeproject
