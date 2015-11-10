@@ -1,21 +1,11 @@
 
 body { padding-top: 50px; }
-/*
- * Limit the screen size for easy reading
- */
  
  @media (min-width: 979px) {
   ul.nav li.dropdown:hover > ul.dropdown-menu {
     display: block;
   }
 }
-/*
-@media (min-width: 1200px) {
-	.container {
-	  width: 900px;
-	}
-}
-*/
 div.summary img {
   margin: 0px 20px 0px 0px;
   width: 200px;
@@ -65,9 +55,12 @@ img.align-center, img.article-image {
 	padding-right: 5px;
 	padding-left: 0px;
 }
-#nav a  {
-	padding-right: 5px;
-	padding-left: 5px;
+
+@media (max-width: 1200px) {
+	#nav a  {
+		padding-right: 5px;
+		padding-left: 5px;
+	}
 }
 #nav .navbar-search {
 	padding-right: 0px;
@@ -124,7 +117,7 @@ a:hover {
   font-size: 14px;
   position:absolute;
   top: 80px;
-  left: 130px;
+  left: 180px;
   font-weight: normal;
 }
 .slide-text h1 {

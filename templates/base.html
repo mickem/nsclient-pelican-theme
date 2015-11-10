@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+{%if RELATIVE_DEPENDENCIES %}
+{% set baseurl = '' %}
+{% else %}
+{% set baseurl = SITEURL %}
+{% endif %}
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -30,14 +35,14 @@
 			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
 			<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" />  
 {% else %}
-			<link rel="stylesheet" href="{{ SITEURL }}/theme/css/dep.css" />
+			<link rel="stylesheet" href="{{ baseurl }}/theme/css/dep.css" />
 {% endif %}
-		<link rel="stylesheet" href="{{ SITEURL }}/theme/css/mickem-bootstrap.css" />
+		<link rel="stylesheet" href="{{ baseurl }}/theme/css/mickem-bootstrap.css" />
 {% if FONTS_FROM_CDN or ALL_FROM_CDN %}
 		<link href='//fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link href='//fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 {% else %}
-			<link rel="stylesheet" href="{{ SITEURL }}/theme/fonts/fonts.css" />
+			<link rel="stylesheet" href="{{ baseurl }}/theme/fonts/fonts.css" />
 {% endif %}
 			
 		{% for url in STYLESHEET_URLS %}
@@ -48,7 +53,7 @@
 			{% set STYLESHEET_FILES = STYLESHEETS %}
 		{% endif %}
 		{% for css in STYLESHEET_FILES %}
-			<link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ css }}" />
+			<link rel="stylesheet" href="{{ baseurl }}/theme/css/{{ css }}" />
 		{% endfor %}
 
 		<!--[if lt IE 9]>
@@ -56,7 +61,7 @@
 			<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-		<link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON|default('favicon.ico') }}" />
+		<link rel="shortcut icon" href="{{ baseurl }}/{{ FAVICON|default('favicon.ico') }}" />
 		{% if CUSTOM_HTML_HEAD %}
 			{% include "includes/" + CUSTOM_HTML_HEAD %}
 		{% endif %}
@@ -321,8 +326,8 @@
 				<address id="site-colophon">
 					<p class="text-muted">
 						Site built using <a href="//getpelican.com/" target="_blank">Pelican</a>
-						&nbsp;&bull;&nbsp; Theme based on <a href="https://github.com/users/mickem" target="_blank">mickem-bootstrap</a>
-						by  <a href="https://www.medin.name/" target="_blank">Michael Medin</a>  
+						&nbsp;&bull;&nbsp; Theme based on <a href="https://github.com/mickem/nsclient-pelican-theme" target="_blank">nsclient-pelican-theme</a>
+						by <a href="https://www.medin.name/" target="_blank">Michael Medin</a>  
 					</p>
 				</address>
 			{% endif %}
@@ -342,14 +347,14 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 {% else %}	
-	<script src="{{ SITEURL }}/theme/js/dep.js"></script>
+	<script src="{{ baseurl }}/theme/js/dep.js"></script>
 {% endif %}	
-	<script src="{{ SITEURL }}/theme/js/mickem-bootstrap.js"></script>
+	<script src="{{ baseurl }}/theme/js/mickem-bootstrap.js"></script>
 	{% for url in JAVASCRIPT_URLS %}
 	<script src="{{ url }}"></script>
 	{% endfor %}
 	{% for js in JAVASCRIPT_FILES %}
-	<script src="{{ SITEURL }}/theme/js/{{ js }}" ></script>
+	<script src="{{ baseurl }}/theme/js/{{ js }}" ></script>
 	{% endfor %}
 	
 {% block scripts %}
