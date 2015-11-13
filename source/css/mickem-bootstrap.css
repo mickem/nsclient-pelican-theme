@@ -349,6 +349,9 @@ p.standfirst {
 #sponsors .panel {
     box-shadow: 2px 2px 1px #888
 }
+#sponsor .panel-body {
+    padding: 0px;
+}
 #sponsors span {
     text-align: center;
     display: table;
